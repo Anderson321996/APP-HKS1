@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chinh Phục HSK 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="logo">
+                <div class="logo-icon"><i class="ri-fire-fill"></i></div>
+                <h1>HSK 1 Master</h1>
+            </div>
+            <ul class="nav-links">
+                <li class="active" data-tab="learn">
+                    <i class="ri-book-open-line"></i>
+                    <span>Học Từ Vựng</span>
+                </li>
+                <li data-tab="practice">
+                    <i class="ri-gamepad-line"></i>
+                    <span>Luyện Tập</span>
+                </li>
+                <li data-tab="quiz">
+                    <i class="ri-test-tube-line"></i>
+                    <span>Kiểm Tra</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            
+            <!-- Tab: Học từ vựng (Flashcard) -->
+            <section id="tab-learn" class="tab-content active">
+                <header>
+                    <h2>Học Từ Vựng HSK 1</h2>
+                    <p>Nhấp vào thẻ để lật và xem chi tiết nghĩa, ví dụ.</p>
+                </header>
+
+                <div class="filter-bar">
+                    <label>Chọn nhóm từ:</label>
+                    <select id="category-filter">
+                        <option value="all">Tất cả</option>
+                        <option value="Đại từ">Đại từ</option>
+                        <option value="Danh từ">Danh từ</option>
+                        <option value="Động từ">Động từ</option>
+                        <option value="Tính từ">Tính từ</option>
+                        <option value="Số đếm & Thời gian">Số đếm & Thời gian</option>
+                        <option value="Lượng từ & Hư từ">Lượng từ & Hư từ</option>
+                    </select>
+                </div>
+
+                <div class="flashcard-container" id="flashcard-container">
+                    <!-- Flashcards will be generated here by app.js -->
+                </div>
+            </section>
+
+            <!-- Tab: Luyện tập -->
+            <section id="tab-practice" class="tab-content">
+                <header>
+                    <h2>Luyện Tập Phản Xạ</h2>
+                    <p>Chọn đáp án đúng nhất cho từ dưới đây.</p>
+                </header>
+
+                <div class="practice-container">
+                    <div class="score-display">Điểm: <span id="practice-score">0</span></div>
+                    <div class="question-card" id="practice-question">
+                        <!-- Question content -->
+                    </div>
+                    <div class="options-grid" id="practice-options">
+                        <!-- Options generated here -->
+                    </div>
+                    <button class="btn primary-btn hidden" id="next-practice-btn">Câu tiếp theo</button>
+                </div>
+            </section>
+
+            <!-- Tab: Kiểm tra -->
+            <section id="tab-quiz" class="tab-content">
+                <header>
+                    <h2>Bài Kiểm Tra Cuối Khóa</h2>
+                    <p>Hoàn thành 20 câu hỏi ngẫu nhiên để đánh giá năng lực của bạn.</p>
+                </header>
+
+                <div id="quiz-intro" class="quiz-state-container">
+                    <div class="quiz-icon"><i class="ri-award-fill"></i></div>
+                    <h3>Sẵn sàng chưa?</h3>
+                    <p>Bài kiểm tra gồm 20 câu trắc nghiệm. Không có giới hạn thời gian.</p>
+                    <button class="btn primary-btn large-btn" id="start-quiz-btn">Bắt Đầu Kiểm Tra</button>
+                </div>
+
+                <div id="quiz-active" class="quiz-state-container hidden">
+                    <div class="quiz-progress">
+                        <span>Câu <span id="quiz-current-num">1</span>/20</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="quiz-progress-fill" style="width: 5%;"></div>
+                        </div>
+                    </div>
+                    <div class="question-card" id="quiz-question">
+                        <!-- Quiz question -->
+                    </div>
+                    <div class="options-grid" id="quiz-options">
+                        <!-- Quiz options -->
+                    </div>
+                </div>
+
+                <div id="quiz-result" class="quiz-state-container hidden">
+                    <div class="result-circle">
+                        <div class="score-text" id="quiz-final-score">0%</div>
+                    </div>
+                    <h3 id="quiz-result-title">Hoàn Thành!</h3>
+                    <p id="quiz-result-msg">Bạn đã trả lời đúng 0/20 câu.</p>
+                    <button class="btn primary-btn" id="restart-quiz-btn">Làm Lại</button>
+                </div>
+            </section>
+
+        </main>
+    </div>
+    
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
